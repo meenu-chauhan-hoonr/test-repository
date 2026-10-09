@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meenu's Code Snippets</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f9f8;
+      --surface: #ffffff;
+      --border: #e4e4e0;
+      --text: #1a1a18;
+      --muted: #7a7a72;
+      --accent: #2563eb;
+      --code-bg: #f2f2f0;
+      --code-text: #1a1a18;
+      --tag-bg: #eef2ff;
+      --tag-text: #3b4fd8;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 1.5rem;
+    }
+
+    header {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 3.5rem 0 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    header h1 {
+      font-size: 1.125rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.35rem;
+    }
+
+    header p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    main {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .snippet-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .snippet-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.875rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      gap: 1rem;
+    }
+
+    .snippet-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .snippet-title {
+      font-size: 0.875rem;
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      white-space: nowrap;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .copy-btn {
+      font-size: 0.75rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: var(--muted);
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      padding: 0.3rem 0.7rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    .copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+    .copy-btn.copied { color: #16a34a; border-color: #16a34a; }
+
+    pre {
+      margin: 0;
+      padding: 1.25rem;
+      background: var(--code-bg);
+      overflow-x: auto;
+    }
+
+    code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.8125rem;
+      line-height: 1.75;
+      color: var(--code-text);
+    }
+
+    .kw  { color: #7c3aed; }
+    .fn  { color: #0369a1; }
+    .str { color: #16a34a; }
+    .cm  { color: #9ca3af; font-style: italic; }
+
+    .snippet-footer {
+      padding: 0.75rem 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    footer {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 1.5rem 0 2rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 480px) {
+      .snippet-header { flex-wrap: wrap; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Code Snippets</h1>
+    <p>A small collection of reusable code samples. Simple, readable, ready to use.</p>
+  </header>
+
+  <main>
+
+    <div class="snippet-card">
+      <div class="snippet-header">
+        <div class="snippet-meta">
+          <span class="snippet-title">Hello, World</span>
+          <span class="tag">html</span>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this, 'snippet-html')">Copy</button>
+      </div>
+      <pre><code id="snippet-html"><span class="cm">&lt;!-- A minimal HTML page --&gt;</span>
+<span class="kw">&lt;!DOCTYPE html&gt;</span>
+<span class="kw">&lt;html</span> lang=<span class="str">"en"</span><span class="kw">&gt;</span>
+<span class="kw">&lt;head&gt;</span>
+  <span class="kw">&lt;meta</span> charset=<span class="str">"UTF-8"</span> <span class="kw">/&gt;</span>
+  <span class="kw">&lt;title&gt;</span>Hello World<span class="kw">&lt;/title&gt;</span>
+<span class="kw">&lt;/head&gt;</span>
+<span class="kw">&lt;body&gt;</span>
+  <span class="kw">&lt;h1&gt;</span>Hello, World!<span class="kw">&lt;/h1&gt;</span>
+<span class="kw">&lt;/body&gt;</span>
+<span class="kw">&lt;/html&gt;</span></code></pre>
+      <div class="snippet-footer">The starting point for every web project.</div>
+    </div>
+
+    <div class="snippet-card">
+      <div class="snippet-header">
+        <div class="snippet-meta">
+          <span class="snippet-title">Hello, World</span>
+          <span class="tag">javascript</span>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this, 'snippet-js')">Copy</button>
+      </div>
+      <pre><code id="snippet-js"><span class="cm">// Log to the console</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="str">"Hello, World!"</span>);
+
+<span class="cm">// Or write to the page</span>
+<span class="kw">document</span>.<span class="fn">getElementById</span>(<span class="str">"output"</span>).textContent = <span class="str">"Hello, World!"</span>;</code></pre>
+      <div class="snippet-footer">Classic first script — runs in any browser console.</div>
+    </div>
+
+    <div class="snippet-card">
+      <div class="snippet-header">
+        <div class="snippet-meta">
+          <span class="snippet-title">Hello, World</span>
+          <span class="tag">python</span>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this, 'snippet-py')">Copy</button>
+      </div>
+      <pre><code id="snippet-py"><span class="cm"># The simplest Python program</span>
+<span class="fn">print</span>(<span class="str">"Hello, World!"</span>)</code></pre>
+      <div class="snippet-footer">One line. That's all Python needs.</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span>meenu.chauhan@hoonr.ai</span>
+    <a href="https://github.com" target="_blank">github.com</a>
+  </footer>
+
+  <script>
+    function copyCode(btn, id) {
+      const el = document.getElementById(id);
+      const raw = el.innerText;
+      navigator.clipboard.writeText(raw).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy';
+          btn.classList.remove('copied');
+        }, 1800);
+      });
+    }
+  </script>
+
+</body>
+</html>
