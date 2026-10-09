@@ -228,6 +228,25 @@
       <div class="snippet-footer">One line. That's all Python needs.</div>
     </div>
 
+    <div class="snippet-card">
+      <div class="snippet-header">
+        <div class="snippet-meta">
+          <span class="snippet-title">Hello, World</span>
+          <span class="tag">typescript</span>
+        </div>
+        <button class="copy-btn" onclick="copyCode(this, 'snippet-ts')">Copy</button>
+      </div>
+      <pre><code id="snippet-ts"><span class="cm">// Hello World in TypeScript</span>
+
+<span class="kw">function</span> <span class="fn">greet</span>(name: <span class="kw">string</span>): <span class="kw">string</span> {
+  <span class="kw">return</span> <span class="str">`Hello, ${name}!`</span>;
+}
+
+<span class="kw">const</span> message: <span class="kw">string</span> = <span class="fn">greet</span>(<span class="str">"World"</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(message);</code></pre>
+      <div class="snippet-footer">Typed from the start — run with <code style="background:var(--code-bg);padding:0.1rem 0.35rem;border-radius:3px;">npx ts-node hello.ts</code></div>
+    </div>
+
   </main>
 
   <footer>
